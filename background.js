@@ -17,7 +17,7 @@ jQuery(function () {
                     success: function (obj) {
                         if (obj.stream) {
                             var nombre = localStorage.getItem("streamer-" + obj.stream.channel.display_name);
-                            if (nombre == "") {
+                            if (nombre == "" || nombre == null) {
                                 nombre = 0;
                             }
                             if (nombre > 2) {
