@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Mes streamers en live",
+    "description": "Mon extension permet de voir si mes streamers sont en live",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+            "all_frames": false,
+            "js": ["jquery-3.1.0.min.js", "app.js"],
+            "matches": ["\u003Call_urls>", "https://*/*"]
+        }],
+    "permissions": [
+        "notifications", "tabs", "\u003Call_urls>", "https://*/*", "storage"
+    ],
+    "background": {
+        "scripts": ["jquery-3.1.0.min.js", "background.js"],
+        "persistent": true
+    },
+    "content_security_policy": "script-src 'self' https://api.twitch.tv; object-src 'self'"
+
+}
